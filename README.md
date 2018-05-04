@@ -24,11 +24,13 @@ When I did my test runs with small proteins, the results of the program were pre
 
 Matching these five small subsections produced an adequate output of 
 
-seq1	PEEKSAVTALWGKV--NVDEVGG
-seq2	GEEKAAVLALWDKV--NEEEVGG
-seq3	PADKTNVKAAWGKVGAHAGEYGA
-seq4	AADKTNVKAANSKVGGHAGEYGA
-seq5	EHEWQLVLHVWAKVEADVAGHGQ
+| sequence   |      Alignment          | 
+|------------|:-----------------------:|
+|seq1	       |PEEKSAVTALWGKV--NVDEVGG  |
+|seq2	       |GEEKAAVLALWDKV--NEEEVGG  |
+|seq3	       |PADKTNVKAAWGKVGAHAGEYGA  |
+|seq4	       |AADKTNVKAANSKVGGHAGEYGA  |
+|seq5	       |EHEWQLVLHVWAKVEADVAGHGQ  |
 
 Though the gaps were a little off of the example, it preserved the major regions highlighted, and produced a clustering that exactly matched the phylogenetic tree in the example. 
 
