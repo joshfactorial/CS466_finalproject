@@ -41,7 +41,7 @@ def align_multiple(matrix, clust1: list, clust2: list, yay=0) -> (pd.DataFrame, 
     n = len(clustal2[0])
 
     # initialize scoring matrix
-    dpmat = np.zeros((m + 1, n + 1), dtype=int)
+    dpmat = np.zeros((m + 1, n + 1), dtype=float)
     moves = np.zeros((m + 1, n + 1), dtype=int)
 
     # scores at the edges
@@ -59,10 +59,13 @@ def align_multiple(matrix, clust1: list, clust2: list, yay=0) -> (pd.DataFrame, 
                 for q in range(len(clustal2)):
                     total += blosum62[clustal1[p][k-1]][clustal2[q][l-1]]
             match = dpmat[k - 1, l - 1] + total/(len(clustal1)*len(clustal2))
-            dpmat[k, l] = max(dpmat[k, l - 1] + gap_score, dpmat[k - 1, l] + gap_score, match)
+            gap2 = dpmat[k, l-1] + gap_score
+            gap3 = dpmat[k-1, l] + gap_score
+            temp = max(gap2, gap3, match)
+            dpmat[k, l] = temp
             if dpmat[k, l] == match:
                 moves[k, l] = 1
-            elif dpmat[k, l] == dpmat[k, l - 1] + gap_score:
+            elif dpmat[k, l] == gap2:
                 moves[k, l] = 2
             else:
                 moves[k, l] = 3
@@ -207,7 +210,7 @@ def calculate_new_matrix(matrix: pd.DataFrame, clust_names: list) -> pd.DataFram
 
 test_sequences = []
 names = []
-gap_score = -200
+gap_score = -5
 
 '''
 The blosum62 matrix includes a scoring column/row for "-" which will signify a gap in the alignment_matrix matrix
@@ -219,7 +222,7 @@ blosum62 = pd.read_csv('C:/Users/Joshua/Google Drive/_grad school/Sp2018/cs466/B
 Read in the sequences as strings and names from the FASTA-formatted file. For simplicity, I declare the exact file
 names here and put the files I need in the appropriate folder
 '''
-for fn in sorted(glob.glob("C:/Users/Joshua/Google Drive/_grad school/Sp2018/cs466/Test Sequences/*.dat")):
+for fn in sorted(glob.glob("C:/Users/Joshua/Google Drive/_grad school/Sp2018/cs466/Sequences/*.dat")):
     temp = read_seq(fn)
     names.append(temp[0])
     test_sequences.append(temp[1])
@@ -272,12 +275,13 @@ while len(clusters) > 1:
 
 pd.options.display.max_colwidth = 2000
 
+# print(alignment_matrix)
 i = 0
 while i < (len(alignment_matrix.iloc[0].to_string())):
-    print(alignment_matrix.index[0], '\t', alignment_matrix.iloc[0].to_string()[i:i + 50])
+    print(alignment_matrix.index[0], '\t\t', alignment_matrix.iloc[0].to_string()[i:i + 50])
     print(alignment_matrix.index[1], '\t\t', alignment_matrix.iloc[1].to_string()[i:i + 50])
-    print(alignment_matrix.index[2], '\t\t\t\t', alignment_matrix.iloc[2].to_string()[i:i + 50])
-    print(alignment_matrix.index[3], '\t\t', alignment_matrix.iloc[3].to_string()[i:i + 50])
+    print(alignment_matrix.index[2], '\t', alignment_matrix.iloc[2].to_string()[i:i + 50])
+    print(alignment_matrix.index[3], '\t\t\t\t', alignment_matrix.iloc[3].to_string()[i:i + 50])
     print(alignment_matrix.index[4], '\t\t', alignment_matrix.iloc[4].to_string()[i:i + 50])
     print('\n')
     i += 50
