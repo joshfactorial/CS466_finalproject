@@ -9,3 +9,6 @@ See the PDF document for the [full report.](https://github.com/joshfactorial/CS4
 
 ## Note
 I discovered an error in my output of the program this morning (5/5/2018) and spent all day trying to isolate the error. I finally figured out that I had declared dtype = int instead of float in my alignment function. Fixing that produced slightly better results. I uploaded the amended program as a different file. The program as initially uploaded does not produce the results I claim because I must have changed that while trying to tweak things to get it to run better before my final data processing run. Anyway, I understand if it can't be considered since I'm past the 12 hour mark as in the email. If so, that's fine because I think the rest of my report basically stands.
+
+## Double note
+I accidentally overwrote the original file because I forgot to change the file name. I think you can compare on the commits tab. But I'll try to upload the file as originally uploaded.
