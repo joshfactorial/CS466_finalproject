@@ -8,3 +8,6 @@ I forced the program into a local alignment version of Dynamic programming to se
 
 ## New Output:
 ![link](https://github.com/joshfactorial/CS466_finalproject/blob/master/followup/new%20alignment_Page_1.png?raw=true)
+![link](https://github.com/joshfactorial/CS466_finalproject/blob/master/followup/new%20alignment_Page_2.png?raw=true)
+![link](https://github.com/joshfactorial/CS466_finalproject/blob/master/followup/new%20alignment_Page_3.png?raw=true)
+![link](https://github.com/joshfactorial/CS466_finalproject/blob/master/followup/new%20alignment_Page_4.png?raw=true)
