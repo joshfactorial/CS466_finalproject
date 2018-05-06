@@ -7,4 +7,4 @@ I forced the program into a local alignment version of Dynamic programming to se
 ('BGIBMGA000498-TA', ('Clk-PD', ('HMEL008784-PA', ('DPOGS206046-PA', 'G0YQM3_SPOEX'))))
 
 ## New Output:
-![link]()
+![link](https://github.com/joshfactorial/CS466_finalproject/blob/master/followup/new%20alignment_Page_1.png?raw=true)
